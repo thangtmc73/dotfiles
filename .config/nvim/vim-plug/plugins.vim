@@ -1,5 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
+    " Dracular theme
+    Plug 'Mofiqul/dracula.nvim'
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
     " File Explorer
