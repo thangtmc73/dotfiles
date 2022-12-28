@@ -1,8 +1,10 @@
 local keymap = vim.keymap
+local builtin = require('telescope.builtin')
 
--- NvmTree
 keymap.set('n', '<C-l>s', ':NvimTreeToggle<CR>')
-
--- BufferLine
-keymap.set('n', '<C-t><left>', ':BufferLineMovePrev<CR>')
-keymap.set('n', '<C-t><right>', ':BufferLineMoveNext<CR>')
+keymap.set('n', '<C-f><left>', ':BufferLineMovePrev<CR>')
+keymap.set('n', '<C-f><right>', ':BufferLineMoveNext<CR>')
+keymap.set('n', '<leader>ff', builtin.find_files, {})
+keymap.set('n', '<leader>fg', builtin.live_grep, {})
+keymap.set('n', '<leader>fb', builtin.buffers, {})
+keymap.set('n', '<leader>fh', builtin.help_tags, {})

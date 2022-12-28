@@ -7,9 +7,6 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
--- empty setup using defaults
-require("nvim-tree").setup()
-
 -- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
@@ -17,7 +14,21 @@ require("nvim-tree").setup({
     adaptive_size = true,
     mappings = {
       list = {
-        { key = "u", action = "dir_up" },
+        {
+          		    key = "<C-e>",
+		    action = "whatever",
+		    action_cb = function(node)
+			    local view = require("nvim-tree.view")
+      local api = require("nvim-tree.api")
+      if view.is_visible() then
+        api.tree.close()
+      else
+        require("nvim-tree").open_replacing_current_buffer()
+        api.tree.open()
+      end
+		    end,
+        }
+        -- { key = "u", action = "dir_up" },
       },
     },
   },
@@ -28,3 +39,6 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
+
+local nt_api = require("nvim-tree.api")
+nt_api.tree.toggle()
