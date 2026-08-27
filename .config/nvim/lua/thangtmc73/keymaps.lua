@@ -1,6 +1,6 @@
 local keymap = vim.keymap.set
 
-keymap("n", "<C-l>s", ":NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
 keymap("n", "<C-f><left>", ":BufferLineMovePrev<CR>")
 keymap("n", "<C-f><right>", ":BufferLineMoveNext<CR>")
 keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>")
